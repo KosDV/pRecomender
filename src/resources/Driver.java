@@ -4,6 +4,7 @@ import weka.classifiers.Classifier;
 import weka.classifiers.Evaluation;
 import weka.classifiers.bayes.NaiveBayes;
 import weka.core.Attribute;
+import weka.core.DenseInstance;
 import weka.core.FastVector;
 import weka.core.Instance;
 import weka.core.Instances;
@@ -43,7 +44,7 @@ public class Driver {
         isTrainingSet.setClassIndex(3);
 
         // Create the instance
-        Instance iExample = new Instance(4);
+        Instance iExample = new DenseInstance(4);
         iExample.setValue((Attribute)fvWekaAttributes.elementAt(0), 1.0);     
         iExample.setValue((Attribute)fvWekaAttributes.elementAt(1), 0.5);     
         iExample.setValue((Attribute)fvWekaAttributes.elementAt(2), "gray");
@@ -58,7 +59,7 @@ public class Driver {
         Evaluation eTest = new Evaluation(isTrainingSet);
         eTest.evaluateModel(cModel, isTrainingSet);
 
-        // Print the result à la Weka explorer:
+        // Print the result �� la Weka explorer:
         String strSummary = eTest.toSummaryString();
         System.out.println(strSummary);
 
