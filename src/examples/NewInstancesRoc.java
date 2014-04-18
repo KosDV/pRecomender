@@ -1,4 +1,4 @@
-package resources;
+package examples;
 
 import weka.core.DenseInstance;
 import weka.core.Instance;

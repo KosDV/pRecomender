@@ -1,4 +1,4 @@
-package resources;
+package examples;
 
 import weka.classifiers.Classifier;
 import weka.classifiers.Evaluation;
@@ -59,7 +59,7 @@ public class Driver {
 		Evaluation eTest = new Evaluation(isTrainingSet);
 		eTest.evaluateModel(cModel, isTrainingSet);
 
-		// Print the result �� la Weka explorer:
+		// Print the result ?????? la Weka explorer:
 		String strSummary = eTest.toSummaryString();
 		System.out.println(strSummary);
 

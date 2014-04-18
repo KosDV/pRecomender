@@ -19,7 +19,7 @@
  * Copyright (C) 2009 University of Waikato, Hamilton, New Zealand
  */
 
-package resources;
+package examples;
 
 import weka.classifiers.Classifier;
 import weka.classifiers.Evaluation;
