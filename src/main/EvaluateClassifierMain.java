@@ -10,32 +10,34 @@ import weka.core.converters.ConverterUtils.DataSource;
 public class EvaluateClassifierMain {
 
 	public static void main(String[] args) throws Exception {
+
+		// variables
+		int numFolds = 10;
+		int numSeeds = 1;
+
 		// load training data
 		Instances data = DataSource
 				.read("/Users/nadim/Workspace/weka-3-7-10/data/weather.nominal.arff");
 		data.setClassIndex(data.numAttributes() - 1);
 
-		// performs 10-fold Cross-Validation to baseline classifier
+		// select a classifier
 		Classifier cl = new ZeroR();
-		int numFolds = 10;
-		int numSeeds = 1;
+		cl.buildClassifier(data);
+
+		// performs 10-fold Cross-Validation to baseline classifier
 		EvaluateClassifier ec = new EvaluateClassifier();
-		System.out.println("Evaluating ZeroR Classifier (Baseline)");
 		Evaluation eval = ec.crossValidation(cl, data, numFolds, numSeeds);
-
-		// getConfusionMatrix
-		System.out.println("The confusion Matrix");
-		ec.getConfusionMatrix(eval);
-
-		// getKappa
-		System.out.println("The Kappa Index");
-		ec.getKappa(eval);
+		ec.printInstancesData(data);
+		ec.printClassifierOutput(data, cl, eval);
 
 		// getCurveROC
-		System.out.println("Plotting Curve ROC...");
 		ec.plotCurveROC(eval);
 
-		System.out.println("Finish!");
+		// getConfusionMatrix
+		// ec.getConfusionMatrix(eval);
+
+		// getKappa
+		// ec.getKappa(eval);
 
 	}
 }
