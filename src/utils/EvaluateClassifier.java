@@ -38,8 +38,8 @@ public class EvaluateClassifier implements EvaluateClassifierInterface {
 
 	@Override
 	public double getKappa(Evaluation eval) {
-		// TODO Auto-generated method stub
-		return 0;
+		double kappaIndex = eval.kappa();
+		return kappaIndex;
 	}
 
 }
