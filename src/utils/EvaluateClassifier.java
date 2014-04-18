@@ -28,15 +28,13 @@ public class EvaluateClassifier implements EvaluateClassifierInterface {
 
 		eval.crossValidateModel(classifier, data, numFolds, rand);
 
-		System.out.println(eval.toClassDetailsString());
-
 		return eval;
-
 	}
 
 	@Override
 	public double[][] getConfusionMatrix(Evaluation eval) {
 		double[][] cnMatrix = eval.confusionMatrix();
+		System.out.println("\nThe confusion Matrix");
 		for (int row_i = 0; row_i < cnMatrix.length; row_i++) {
 			for (int col_i = 0; col_i < cnMatrix.length; col_i++) {
 				System.out.print(cnMatrix[row_i][col_i]);
@@ -50,7 +48,7 @@ public class EvaluateClassifier implements EvaluateClassifierInterface {
 	@Override
 	public double getKappa(Evaluation eval) {
 		double kappaIndex = eval.kappa();
-
+		System.out.println("\nThe Kappa Index");
 		System.out.println(kappaIndex);
 
 		return kappaIndex;
@@ -58,6 +56,7 @@ public class EvaluateClassifier implements EvaluateClassifierInterface {
 
 	@Override
 	public void plotCurveROC(Evaluation eval) {
+		System.out.println("\nPlotting Curve ROC...");
 		// Generate the curve
 		ThresholdCurve tc = new ThresholdCurve();
 		Instances curve = tc.getCurve(eval.predictions());
@@ -91,6 +90,27 @@ public class EvaluateClassifier implements EvaluateClassifierInterface {
 		jf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		jf.setVisible(true);
 
+		System.out.println("...Finish!");
+	}
+
+	@Override
+	public void printClassifierOutput(Instances data, Classifier cl,
+			Evaluation eval) throws Exception {
+		System.out.println("=== Instances summary (full training set) ===\n");
+		System.out.println(data.toSummaryString());
+		System.out.println("=== Classifier model (full training set) ===\n");
+		System.out.println(cl + "\n");
+		System.out.println("=== Stratified cross-validation ===");
+		System.out.println("=== Summary ===");
+		System.out.println(eval.toSummaryString());
+		System.out.println(eval.toClassDetailsString());
+		System.out.println(eval.toMatrixString());
+	}
+
+	@Override
+	public void printInstancesData(Instances data) {
+		System.out.println("=== Instances ===");
+		System.out.println(data.toString() + "\n");
 	}
 
 }
