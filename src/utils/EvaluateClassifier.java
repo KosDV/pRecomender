@@ -50,6 +50,9 @@ public class EvaluateClassifier implements EvaluateClassifierInterface {
 	@Override
 	public double getKappa(Evaluation eval) {
 		double kappaIndex = eval.kappa();
+
+		System.out.println(kappaIndex);
+
 		return kappaIndex;
 	}
 
