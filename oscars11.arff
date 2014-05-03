@@ -36,5 +36,9 @@
 
 'Brad-Pitt','40-49','male','Bennett-Miller','bestActor','2011','no',4,1,'Tom-McGrath','none','2010','no','no','Andrew-Dominik','bestActor','2012','no','no'
 
-
+'Colin-Firth','50-59','male','Tom-Hooper','bestActor','2010','yes',2,1,'Tom-Ford','bestActor','2009','no','yes',
+'Javier-Bardem','40-49','male',Alejandro-Gonzalez','bestActor','2010','no',3,1,
+'Jeff-Bridges','60-69','male','Joel-Coen','bestActor','2010','no',6,1,'Scott-Cooper','bestActor','2009','yes','yes',
+'Jesse Eisenberg','20-29','male','David-Fincher','bestActor','2010','no',1,0,
+'James-Franco','30-39','male','Danny-Boyle','bestActor','2010','no',1,0,
 
