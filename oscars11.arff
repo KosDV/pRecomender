@@ -1,0 +1,40 @@
+%	Nominated people in year X that repeat nomination the next year
+@relation 'oscars_nominations'
+%	Current year
+@attribute	name					string
+@attribute	age						{'10-19','20-29','30-39','40-49','50-59','60-69','70-79','80-89','90-99'}
+@attribute	sex						{'male', 'female'}
+@attribute	director				string
+@attribute	category				{'bestActor','bestSupportingActor','bestActress','bestSupportingActress','other','none'}
+@attribute	year					{'2006','2007','2008','2009','2010','2011','2012','2013','2014'}
+@attribute	awarded					{'yes','no'}
+@attribute	total_nominations		numeric
+@attribute	total_awards			numeric
+%	Previous Year
+@attribute	director_prev			string
+@attribute	category_prev			{'bestActor','bestSupportingActor','bestActress','bestSupportingActress','other','none'}
+@attribute	year_prev				{'2006','2007','2008','2009','2010','2011','2012','2013','2014'}
+@attribute	awarded_prev			{'yes','no'}
+@attribute	nominated_prev			{'yes','no'}
+%	Next year, if more than one film, choose the nominated or the same category
+@attribute	director_next			string'
+@attribute	category_next			{'bestActor','bestSupportingActor','bestActress','bestSupportingActress','other','none'}
+@attribute	year_next				{'2006','2007','2008','2009','2010','2011','2012','2013','2014'}
+@attribute	awarded_next			{'yes','no'}
+@attribute	class_repeat_nomination {'yes','no'}
+
+%	Trainning Data
+@data
+%	2011|2010|2012
+'Jean-Dujardin','30-39','male','Michel-Hazanavicius','bestActor','2011','yes',1,1,'Nicole-Garcia','bestActor','2010','no','no','Emmanuelle-Bercot','bestActor','2012','no','no'
+
+'Demián-Bichir','40-49','male','Chris-Weitz','bestActor','2011','no',1,0,'Ian-Power','bestActor','2010','no','no','Oliver-Stone','none','2012','no','no'
+
+'George-Clooney','40-49','male','Alexander-Payne','bestActor','2011','no',8,2,'Anton-Corbijn','bestActor','2010','no','no','Ben-Affleck','other','2012','yes','yes'
+
+'Gary-Oldman','50-59','male','Tomas-Alfredson','bestActor','2011','no',1,0,'The-Hughes-brothers','none','2010','no','no','Christopher-Nolan','none','2012','no','no'
+
+'Brad-Pitt','40-49','male','Bennett-Miller','bestActor','2011','no',4,1,'Tom-McGrath','none','2010','no','no','Andrew-Dominik','bestActor','2012','no','no'
+
+
+
