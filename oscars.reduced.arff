@@ -1,0 +1,37 @@
+%	Nominated people in year X will repeat nomination the next year?
+@relation 'oscars_nominations'
+%	Current year
+@attribute	name					{'Jean-Dujardin','Demian-Bichir','George-Clooney','Gary-Oldman','Brad-Pitt','Colin-Firth','Javier-Bardem','Jeff-Bridges','Jesse-Eisenberg','James-Franco'}
+@attribute	sex						{'male', 'female'}
+@attribute	category				{'bestActor','bestSupportingActor','bestActress','bestSupportingActress','other','none'}
+@attribute	awarded					{'yes','no'}
+@attribute	total_nominations		numeric
+@attribute	total_awards			numeric
+%	Previous Year
+@attribute	category_prev			{'bestActor','bestSupportingActor','bestActress','bestSupportingActress','other','none'}
+@attribute	awarded_prev			{'yes','no'}
+@attribute	nominated_prev			{'yes','no'}
+%	Next year, if more than one film, choose the nominated or the same category
+@attribute	category_next			{'bestActor','bestSupportingActor','bestActress','bestSupportingActress','other','none'}
+@attribute	awarded_next			{'yes','no'}
+@attribute	class_repeat_nomination {'yes','no'}
+
+%	Trainning Data
+@data
+%	2011|2010|2012
+% 	name,*age,sex,*director,category,*year,awarded,total_nominations,total_awards,
+%	*director_prev,category_prev,*year_prev,awarded_prev,nominated_prev,
+%	*director_next,category_next,*year_next,awarded_next,class_repeat_nomination
+
+'Jean-Dujardin','male','bestActor','yes',1,1,'bestActor','no','no','bestActor','no','no'
+'Demian-Bichir','male','bestActor','no',1,0,'bestActor','no','no','none','no','no'
+'George-Clooney','male','bestActor','no',8,2,'bestActor','no','no','other','yes','yes'
+'Gary-Oldman','male','bestActor','no',1,0,'none','no','no','none','no','no'
+'Brad-Pitt','male','bestActor','no',4,1,'none','no','no','bestActor','no','no'
+
+%	2010|2009|2011
+'Colin-Firth','male','bestActor','yes',2,1,'bestActor','no','yes','bestSupportingActor','no','no'
+'Javier-Bardem','male','bestActor','no',3,1,'bestActor','no','no','bestSupportingActor','no','no'
+'Jeff-Bridges','male','bestActor','no',6,1,'bestActor','yes','yes','none','no','no'
+'Jesse-Eisenberg','male','bestActor','no',1,0,'bestActor','no','no','bestActor','no','no'
+'James-Franco','male','bestActor','no',1,0,'bestSupportingActor','no','no','bestActor','no','no'
