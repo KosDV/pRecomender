@@ -1,0 +1,14 @@
+%	Nominated people in year X will repeat nomination the next year?
+@relation 'oscars_nominations'
+@attribute	name					{'Jean-Dujardin','Demian-Bichir','George-Clooney','Gary-Oldman','Brad-Pitt','Colin-Firth','Javier-Bardem','Jeff-Bridges','Jesse-Eisenberg','James-Franco','Leonardo-DiCaprio'}
+@attribute	total_nominations		numeric
+@attribute	category_next			{'bestActor','bestSupportingActor','bestActress','bestSupportingActress','other','none'}
+@attribute	awarded_next			{'yes','no'}
+@attribute	class_repeat_nomination {'yes','no'}
+
+%	Trainning Data
+% 	name,total_nominations,category_next,awarded_next,class_repeat_nomination
+
+@data
+%	2012|2013
+'Leonardo-DiCaprio',4,'bestActor','no',?
