@@ -3,7 +3,7 @@ package main;
 import utils.EvaluateClassifier;
 import weka.classifiers.Classifier;
 import weka.classifiers.evaluation.Evaluation;
-import weka.classifiers.rules.ZeroR;
+import weka.classifiers.functions.VotedPerceptron;
 import weka.core.Instances;
 import weka.core.converters.ConverterUtils.DataSource;
 
@@ -17,11 +17,11 @@ public class EvaluateClassifierMain {
 
 		// load training data
 		Instances data = DataSource
-				.read("/Users/nadim/Workspace/weka-3-7-10/data/weather.nominal.arff");
+				.read("oscars.training.arff");
 		data.setClassIndex(data.numAttributes() - 1);
 
 		// select a classifier
-		Classifier cl = new ZeroR();
+		Classifier cl = new VotedPerceptron();
 		cl.buildClassifier(data);
 
 		// performs 10-fold Cross-Validation to baseline classifier
